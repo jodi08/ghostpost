@@ -1,0 +1,21 @@
+{% include 'navbar.html' %}
+
+<h1 style="text-align: center;">Welcome to the Roast Posts</h1>
+          <h4 style="text-align: center;">Glutton for punishment, eh?</h4>
+          
+          {% for post in postsort %}
+          <div class="container" style="border:1px solid black; padding:10px;">
+          
+            {% if post.boast_roast == False %}
+              <h5>Roast</h5>
+            {% endif %}
+              <h3><li style="list-style-type: none;">{{ post.body }}</li></h3>
+              <h3><li style="list-style-type: none;"><a href="/upvote/{{post.id}}">Up Vote {{ post.upvote }}</a></li></h3>
+              <h3><li style="list-style-type: none;"><a href="/upvote/{{post.id}}">Down Vote {{ post.downvote }}</a></li></h3>
+              <p>Total Score: {{post.totalvotes}}</p>
+              <h3><li style="list-style-type: none">{{ post.timestamp }}</li></h3>
+              <hr>
+            <br>
+          </div>
+            {% endfor %}
+        
